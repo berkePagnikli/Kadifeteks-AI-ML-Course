@@ -32,17 +32,7 @@ df['Season'] = df['Tarih'].apply(get_season)
 # Remove irrelevant or identifier columns that don't contribute to prediction
 df = df.drop([
     'İş Emri No',
-    'Tarih',
-    'Sipariş No',
-    'Kumaş Kodu',
-    'Firma Ülkesi',
-    'Desen Adı',
-    'Varyant No',
-    'Kalite Adı',
-    'Tezgah Kodu',
-    'Firma Adı', 
-    'Proses Kodu',
-    'Çözgü Adı'
+    'Tarih'
 ], axis=1)
 
 # Define the target variable

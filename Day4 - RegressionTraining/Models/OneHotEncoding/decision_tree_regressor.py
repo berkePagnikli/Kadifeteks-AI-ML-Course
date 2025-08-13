@@ -52,9 +52,9 @@ X_train, X_test, y_train, y_test = train_test_split(X_encoded, y, test_size=0.2,
 
 # Initialize Decision Tree Regressor with specific hyperparameters
 model = DecisionTreeRegressor(
-    max_depth=10,         # Maximum depth of the tree to control overfitting
-    min_samples_split=5,  # Minimum samples required to split an internal node
-    min_samples_leaf=2,   # Minimum samples required to be at a leaf node
+    max_depth=15,         # Maximum depth of the tree to control overfitting
+    min_samples_split=8,  # Minimum samples required to split an internal node
+    min_samples_leaf=4,   # Minimum samples required to be at a leaf node
     random_state=42       # Random seed for reproducibility
 )
 

@@ -35,6 +35,7 @@ categorical_features = [col for col in df.columns if col != target and df[col].d
 X = df[categorical_features]  # Only categorical features for one-hot encoding
 y = df[target]                # Target variable
 
+
 # Initialize One-Hot Encoder with specific parameters
 encoder = OneHotEncoder(
     sparse_output=False,      # Return dense array instead of sparse matrix for easier handling

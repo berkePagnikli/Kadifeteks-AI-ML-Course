@@ -25,10 +25,9 @@ def preprocess_inference_data(df):
     """Preprocess inference data similar to training data"""
     df['Season'] = df['Tarih'].apply(get_season)
 
-    df_processed = df.drop([
-        'İş Emri No', 'Tarih', 'Sipariş No', 'Kumaş Kodu',
-        'Firma Ülkesi', 'Desen Adı', 'Varyant No', 'Kalite Adı',
-        'Tezgah Kodu', 'Firma Adı', 'Proses Kodu', 'Çözgü Adı'
+    df_processed =df.drop([
+        'İş Emri No',
+        'Tarih'
     ], axis=1)
     
     return df_processed
