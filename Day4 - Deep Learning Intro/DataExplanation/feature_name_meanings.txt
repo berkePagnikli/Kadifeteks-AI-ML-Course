@@ -1,0 +1,9 @@
+Cement: Cement
+BFS: Blast furnace slag 
+FA: Fly ash
+Water: Water
+SP: Superplasticizer
+CAgg: Coarse aggregate
+FAgg: Fine aggregate
+Age: Age
+CS: Compressive strength
