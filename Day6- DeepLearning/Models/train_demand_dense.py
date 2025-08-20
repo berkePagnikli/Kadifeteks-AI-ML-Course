@@ -89,6 +89,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # - LeakyReLU avoids dying ReLU issues by allowing a small negative slope (default alpha=0.3 in Keras layer)
 #   so gradients flow for negative inputs, improving learning stability.
 # - Dropout(0.2) randomly zeros 20% of activations to improve generalization.
+
 model = tf.keras.models.Sequential([
     tf.keras.layers.Dense(256, input_dim=X_train.shape[1], kernel_regularizer=tf.keras.regularizers.l2(0.001)),
     tf.keras.layers.LeakyReLU(),
@@ -153,3 +154,22 @@ plt.ylabel('Loss')
 plt.legend()
 plt.tight_layout()
 plt.show()
+
+
+"""
+Current R2 score is 0.71 which means it is promising.
+
+Prediction vs Actual:
+
+Predicted: 20.08, Actual: 46.20 ----26 off
+Predicted: 22.00, Actual: 37.97 ----15 off
+Predicted: 14.37, Actual: 50.82 ----36 off
+Predicted: 18.66, Actual: 39.20 ----21 off
+Predicted: 18.29, Actual: 46.20 ----28 off
+Predicted: 14.69, Actual: 18.68 ----4 off
+Predicted: 211.21, Actual: 66.44 ----145 off
+Predicted: 39.65, Actual: 63.53 ----23 off
+Predicted: 13.99, Actual: 15.94 ----2 off
+Predicted: 24.28, Actual: 44.00 ----20 off
+
+"""
