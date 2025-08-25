@@ -1,3 +1,4 @@
 python-dotenv==1.0.0
 autogen
-ag2[openai]
+google-generativeai
+ag2[gemini]
