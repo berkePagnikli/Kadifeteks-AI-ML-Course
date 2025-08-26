@@ -1,0 +1,6 @@
+qdrant_client
+sentence_transformers
+autogen
+ag2[openai]
+ag2[retrievechat]
+pandas
