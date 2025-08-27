@@ -51,8 +51,7 @@ def retrieve_textile_data(query: str, collection_names: List[str], top_k: int = 
                 }
             })
     
-    # Tüm sonuçlar tek listede => skora göre azalan sırala ve ilk top_k*3 tanesini döndür.
-    # Neden *3? Birden fazla koleksiyondan geldiği için çeşitlilik sağlama.
+    # Tüm sonuçlar tek listede => skora göre azalan sırala.
     return sorted(results, key=lambda x: x["metadata"]["score"], reverse=True)
 
 
@@ -71,7 +70,8 @@ assistant = AssistantAgent(
     # Yönergeler
         - Kullanıcı sorgusunu şu formatta alacaksın: "User: {query}" ve bağlamı şu formatta: "Context: {context}". Context; belgelerin ve onların metadatalarının bulunduğu bir listedir. Bağlamı sanki sen veri tabanından almışsın gibi değerlendir.
         - Odak noktan zaman bağlı ihtiyaç değişimleri. Burada ay, yıl, ihtiyaç ve hammadde kodu özelliklerinden faydalanarak kullanıcının istediği hesaplamaları yerine getir.
-        - Hesaplama sonuçlarını paylaşırken en iyi (yüksek ihtiyaç), en kötü (düşük ihtiyaç) ve normal yaptığın hesaplamayı paylaş, madde madde açıkla.
+        - SARIMA algoritmasını kullanarak tahminleme hesaplamalarını yürüt, süreci madde madde açıkla.
+        - Tahminleme doğruluğunu MAPE ile doğrula.
     """,
     llm_config={
         "config_list": config_list,  # JSON'dan gelen sağlayıcı ayarları listesi
@@ -111,4 +111,4 @@ def runAgent(question: str):
 # ---------------------------------------------------------------
 # Script doğrudan çalıştırıldığında örnek bir soru ile ajanı test eder.
 # ---------------------------------------------------------------
-runAgent("NPE 1000 449 hammadde kodunun 2025 yılında ilk 7 aylık ihtiyaç kg'si toplamda ne kadar olacaktır?")
+runAgent("NPE 1000 449 hammadde kodunun 2025 yılında ilk ay aylık ihtiyaç kg'si toplamda ne kadar olacaktır? Hesapla.")

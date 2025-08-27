@@ -66,7 +66,7 @@ def ensure_payload_indexes(collection_name: str, has_date: bool) -> None:
             pass  # Zaten varsa sessiz.
 
 # ---------------------------------------------------------------
-# Uygulamada kullanılacak dört ayrı koleksiyon (veri perspektifleri) önceden oluşturuluyor.
+# Uygulamada kullanılacak koleksiyon (veri perspektifleri) önceden oluşturuluyor.
 # Aynı CSV satırları farklı perspektiflerde (ürün, firma, hammadde, proses) analiz için kullanılabilir.
 # ---------------------------------------------------------------
 create_collection("textile_materials")
@@ -145,7 +145,7 @@ def create_document_text(row: pd.Series) -> str:
     return f"İhtiyaç: {ihtiyac} kg Tarih: {ay_str}/{yil} Hammadde Kodu: {kod}"
 
 # ---------------------------------------------------------------
-# prepare_raw_collections: Şu an için aynı DataFrame'i 4 farklı koleksiyona aynen veriyoruz.
+# prepare_raw_collections: Şu an için aynı DataFrame'i koleksiyona aynen veriyoruz.
 # Gelecekte her koleksiyon için farklı filtre / grupla işlemleri yapılabilir.
 # ---------------------------------------------------------------
 def prepare_raw_collections(df: pd.DataFrame) -> Dict[str, pd.DataFrame]:
