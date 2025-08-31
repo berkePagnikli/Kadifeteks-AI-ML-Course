@@ -1,0 +1,9 @@
+qdrant_client
+sentence_transformers
+langchain
+langchain-google-genai
+langchain-community
+langchain-core
+pandas
+google-generativeai
+python-dotenv

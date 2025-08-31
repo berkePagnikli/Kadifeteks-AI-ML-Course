@@ -1,0 +1,73 @@
+@startuml ai_services_class_diagram
+left to right direction
+skinparam classAttributeIconSize 0
+skinparam classFontSize 16
+skinparam dpi 150
+hide empty members
+
+skinparam class {
+  BackgroundColor<<utility>> LightGray
+  AttributeFontSize 14
+  AttributeFontName Arial
+  BorderThickness 1
+}
+
+skinparam linetype ortho
+
+abstract class Agent {
+  + __init__()
+  - _create_llm()
+  - _get_system_prompt()
+  - _create_prompt_template()
+  - _create_output_parser()
+  - _create_chain()
+  + run()
+}
+
+package "Concrete AI Agent Classes" #E6F7E6 {
+
+  class PlannerAgent {
+    + __init__()
+    - _get_system_prompt()
+    - _create_prompt_template()
+    - _create_output_parser()
+    - _create_chain()
+    + run()
+  }
+
+  class RecommendationAgent {
+    + __init__()
+    - _get_system_prompt()
+    - _create_prompt_template()
+    - _create_output_parser()
+    - _create_chain()
+    + run()
+  }
+
+  class ResearcherAgent {
+    + __init__()
+    - _get_system_prompt()
+    - _create_prompt_template()
+    - _create_output_parser()
+    - _create_chain()
+    + run()
+  }
+}
+
+class TeamCompiler {
+    + __init__()
+    + add_to_history()
+    + solve()
+}
+
+' Inheritance
+PlannerAgent --|> Agent
+RecommendationAgent --|> Agent
+ResearcherAgent --|> Agent
+
+' Composition relationships
+TeamCompiler ..> PlannerAgent : «uses»
+TeamCompiler ..> RecommendationAgent : «uses»
+TeamCompiler ..> ResearcherAgent : «uses»
+
+@enduml
